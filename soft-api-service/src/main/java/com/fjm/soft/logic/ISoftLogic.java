@@ -6,5 +6,5 @@ package com.fjm.soft.logic;
  * @Description:
  */
 public interface ISoftLogic {
-    String sayHelloForSomeone(String someone);
+    String sayHelloToSomeone(String someone);
 }

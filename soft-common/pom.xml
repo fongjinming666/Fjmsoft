@@ -16,9 +16,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>soft-model</artifactId>
+            <groupId>com.fjm.soft</groupId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
