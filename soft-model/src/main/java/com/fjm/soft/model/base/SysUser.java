@@ -19,7 +19,7 @@ import java.io.Serializable;
 
 @Data
 @Accessors(chain = true)
-@TableName(value = "t_app")
+@TableName(value = "sys_user")
 @KeySequence("snowFlakeIdGenerator")
 public class SysUser implements BaseObject, LogicalDeleteSupport, Serializable {
 

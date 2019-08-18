@@ -34,6 +34,6 @@ public class SoftController {
     public String sayHello(@RequestParam(value = "name", defaultValue = "someone", required = false) String name) {
         logger.info("test application logging...");
         loggerController.info("test controller logging...");
-        return softLogic.sayHelloForSomeone(name);
+        return softLogic.sayHelloToSomeone(name);
     }
 }
