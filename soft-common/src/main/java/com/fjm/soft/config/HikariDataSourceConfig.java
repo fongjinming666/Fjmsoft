@@ -25,6 +25,7 @@ public class HikariDataSourceConfig {
     @Qualifier("hikariDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
     public HikariDataSource hikariDataSource() {
-        return DataSourceBuilder.create().type(HikariDataSource.class).build();
+        HikariDataSource dataSource = DataSourceBuilder.create().type(HikariDataSource.class).build();
+        return dataSource;
     }
 }

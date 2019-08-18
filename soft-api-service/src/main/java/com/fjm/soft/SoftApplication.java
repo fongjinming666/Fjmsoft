@@ -1,6 +1,7 @@
 package com.fjm.soft;
 
 import com.fjm.soft.utils.idgen.SnowFlake;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,6 +34,7 @@ public class SoftApplication {
      * @return SnowFlake
      */
     @Bean
+    @Qualifier("snowFlakeIdGenerator")
     public SnowFlake getSnowFlake() {
         return new SnowFlake(this.datacenterId, this.machineId);
     }
