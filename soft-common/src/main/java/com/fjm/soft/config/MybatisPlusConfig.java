@@ -29,6 +29,15 @@ public class MybatisPlusConfig {
     private DataSource dataSource;
 
     /**
+     * 自定义主键.
+     * @return
+     */
+    @Bean
+    public SnowFlakeIdGenerator snowFlakeIdGenerator(){
+        return new SnowFlakeIdGenerator();
+    }
+
+    /**
      * 性能分析拦截器，不建议生产使用 用来观察 SQL 执行情况及执行时长, 默认dev,staging 环境开启
      *
      * @return com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
@@ -60,5 +69,6 @@ public class MybatisPlusConfig {
     public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
     }
+
 
 }

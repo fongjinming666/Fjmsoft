@@ -98,6 +98,7 @@ public class SnowFlake {
         }
         this.datacenterId = datacenterId;
         this.machineId = machineId;
+        instance = this; // 直接初始化单例对象
     }
 
     /**

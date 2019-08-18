@@ -34,7 +34,6 @@ public class SoftApplication {
      * @return SnowFlake
      */
     @Bean
-    @Qualifier("snowFlakeIdGenerator")
     public SnowFlake getSnowFlake() {
         return new SnowFlake(this.datacenterId, this.machineId);
     }
