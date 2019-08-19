@@ -3,7 +3,6 @@ package com.fjm.soft.config;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
-import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
@@ -122,7 +121,7 @@ public class MybatisPlusConfig {
         mybatisSqlSessionFactoryBean.setPlugins(new Interceptor[]{
                 performanceInterceptor(),
                 paginationInterceptor(),
-                new OptimisticLockerInterceptor()
+                //new OptimisticLockerInterceptor()
         });
         return mybatisSqlSessionFactoryBean;
     }

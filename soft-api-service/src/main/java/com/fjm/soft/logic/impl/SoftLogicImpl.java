@@ -1,6 +1,5 @@
 package com.fjm.soft.logic.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fjm.soft.logic.ISoftLogic;
 import com.fjm.soft.mapper.SysUserMapper;
 import com.fjm.soft.model.base.SysUser;
@@ -27,7 +26,7 @@ public class SoftLogicImpl implements ISoftLogic {
         if (StringUtils.isEmpty(someone)) {
             return "say hello to who ?";
         }
-        SysUser s =new SysUser()
+        SysUser s = new SysUser()
                 .setId(createId())
                 .setAccount("accout").setName("fjm").setPassword("123456")
                 .setUpdateTime(System.currentTimeMillis());
