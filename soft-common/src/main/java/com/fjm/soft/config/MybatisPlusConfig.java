@@ -32,15 +32,15 @@ import java.io.IOException;
 
 public class MybatisPlusConfig {
 
+    @Autowired
+    @Qualifier("hikariDataSource")
+    private DataSource hikariDataSource;
+
     /**
      * mybatis-plus 配置
      */
     @Resource
     public MybatisPlusProperties mybatisPlusProperties;
-
-    @Autowired
-    @Qualifier("hikariDataSource")
-    private DataSource hikariDataSource;
 
     /**
      * 性能分析拦截器，不建议生产使用 用来观察 SQL 执行情况及执行时长, 默认dev,staging 环境开启
@@ -90,6 +90,8 @@ public class MybatisPlusConfig {
     }
 
     /**
+     * MybatisSqlSessionFactoryBean
+     *
      * @return
      */
     @Bean("sqlSessionFactory")
@@ -125,6 +127,11 @@ public class MybatisPlusConfig {
         return mybatisSqlSessionFactoryBean;
     }
 
+    /**
+     * MybatisPlusProperties
+     *
+     * @return
+     */
     public MybatisPlusProperties getMybatisPlusProperties() {
         mybatisPlusProperties.getGlobalConfig().setMetaObjectHandler(getMyBatisPlusMetaObjectHandler());
         mybatisPlusProperties.getGlobalConfig().setSqlInjector(sqlInjector());
