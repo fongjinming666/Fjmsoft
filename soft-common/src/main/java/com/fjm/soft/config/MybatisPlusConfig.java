@@ -27,6 +27,7 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement
 @MapperScan("com.fjm.soft.mapper")
+
 public class MybatisPlusConfig {
 
     /**
@@ -63,6 +64,15 @@ public class MybatisPlusConfig {
     }
 
     /**
+     * mybatisplus自定义填充公共字段 ,即没有传的字段自动填充.
+     * @return
+     */
+    @Bean
+    public MyBatisPlusMetaObjectHandler getMyBatisPlusMetaObjectHandler(){
+        return new MyBatisPlusMetaObjectHandler();
+    }
+
+    /**
      * 具备逻辑删除
      *
      * @return
@@ -94,11 +104,18 @@ public class MybatisPlusConfig {
      * @throws IOException
      */
     private MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() throws IOException {
+        mybatisPlusProperties = getMybatisPlusProperties();
         MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
         mybatisSqlSessionFactoryBean.setGlobalConfig(mybatisPlusProperties.getGlobalConfig());
         mybatisSqlSessionFactoryBean.setConfiguration(mybatisPlusProperties.getConfiguration());
         mybatisSqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(mybatisPlusProperties.getMapperLocations()[0]));
         mybatisSqlSessionFactoryBean.setTypeAliasesPackage(mybatisPlusProperties.getTypeAliasesPackage());
         return mybatisSqlSessionFactoryBean;
+    }
+
+    public MybatisPlusProperties getMybatisPlusProperties() {
+        mybatisPlusProperties.getGlobalConfig().setMetaObjectHandler(getMyBatisPlusMetaObjectHandler());
+        mybatisPlusProperties.getGlobalConfig().setSqlInjector(sqlInjector());
+        return mybatisPlusProperties;
     }
 }

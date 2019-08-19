@@ -30,11 +30,8 @@ public class SoftLogicImpl implements ISoftLogic {
         SysUser s =new SysUser()
                 .setId(createId())
                 .setAccount("accout").setName("fjm").setPassword("123456")
-                .setCreateTime(System.currentTimeMillis()).setUpdateTime(System.currentTimeMillis()).setDeleted(false).setDeleteTime(0L);
-        SysUser sysUser = sysUserMapper.selectOne(new QueryWrapper<SysUser>().lambda().eq(SysUser::getName, someone));
+                .setUpdateTime(System.currentTimeMillis());
         sysUserMapper.insert(s);
-        return "hello " + sysUser.getName()
-                + " !, your account is " + sysUser.getAccount()
-                + ",and your password is " + sysUser.getPassword();
+        return "hello ";
     }
 }

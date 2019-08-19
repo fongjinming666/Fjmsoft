@@ -1,12 +1,11 @@
 package com.fjm.soft.model.base;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.KeySequence;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fjm.soft.model.BaseObject;
 import com.fjm.soft.model.LogicalDeleteSupport;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -20,7 +19,8 @@ import java.io.Serializable;
 @Data
 @Accessors(chain = true)
 @TableName(value = "sys_user")
-@KeySequence(value = "snowFlakeIdGenerator")
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysUser implements BaseObject, LogicalDeleteSupport, Serializable {
 
     @TableId(type = IdType.INPUT)
@@ -32,11 +32,14 @@ public class SysUser implements BaseObject, LogicalDeleteSupport, Serializable {
 
     private String password;
 
+    @TableField(fill = FieldFill.INSERT)
     private Long createTime;
 
     private Long updateTime;
 
+   // @TableField(fill = FieldFill.INSERT)
     private boolean deleted;
 
+    @TableField(fill = FieldFill.INSERT)
     private Long deleteTime;
 }
