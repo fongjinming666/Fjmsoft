@@ -3,9 +3,11 @@ package com.fjm.soft.config;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -49,8 +51,12 @@ public class MybatisPlusConfig {
     @Bean
     @Profile({"dev"})
     public PerformanceInterceptor performanceInterceptor() {
-        //启用性能分析插件, SQL是否格式化 默认false,此处开启
-        return new PerformanceInterceptor().setFormat(true);
+        PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+        /*<!-- SQL 执行性能分析，开发环境使用，线上不推荐。 maxTime 指的是 sql 最大执行时长 -->*/
+        performanceInterceptor.setMaxTime(500000000);
+        /*<!--SQL是否格式化 默认false-->*/
+        performanceInterceptor.setFormat(true);
+        return performanceInterceptor;
     }
 
     /**
@@ -65,10 +71,11 @@ public class MybatisPlusConfig {
 
     /**
      * mybatisplus自定义填充公共字段 ,即没有传的字段自动填充.
+     *
      * @return
      */
     @Bean
-    public MyBatisPlusMetaObjectHandler getMyBatisPlusMetaObjectHandler(){
+    public MyBatisPlusMetaObjectHandler getMyBatisPlusMetaObjectHandler() {
         return new MyBatisPlusMetaObjectHandler();
     }
 
@@ -110,6 +117,11 @@ public class MybatisPlusConfig {
         mybatisSqlSessionFactoryBean.setConfiguration(mybatisPlusProperties.getConfiguration());
         mybatisSqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(mybatisPlusProperties.getMapperLocations()[0]));
         mybatisSqlSessionFactoryBean.setTypeAliasesPackage(mybatisPlusProperties.getTypeAliasesPackage());
+        mybatisSqlSessionFactoryBean.setPlugins(new Interceptor[]{
+                performanceInterceptor(),
+                paginationInterceptor(),
+                new OptimisticLockerInterceptor()
+        });
         return mybatisSqlSessionFactoryBean;
     }
 
