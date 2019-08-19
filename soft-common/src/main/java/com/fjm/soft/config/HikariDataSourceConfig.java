@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HikariDataSourceConfig {
 
-
     /**
      * shiro数据源(单数据源-hikari连接池).
      *
@@ -25,7 +24,6 @@ public class HikariDataSourceConfig {
     @Qualifier("hikariDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
     public HikariDataSource hikariDataSource() {
-        HikariDataSource dataSource = DataSourceBuilder.create().type(HikariDataSource.class).build();
-        return dataSource;
+        return DataSourceBuilder.create().type(HikariDataSource.class).build();
     }
 }

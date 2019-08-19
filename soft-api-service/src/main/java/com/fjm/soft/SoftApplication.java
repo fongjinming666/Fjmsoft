@@ -1,7 +1,6 @@
 package com.fjm.soft;
 
 import com.fjm.soft.utils.idgen.SnowFlake;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,14 +27,9 @@ public class SoftApplication {
     private long machineId;
 
 
-    /**
-     * 实例化分布式Id的SnowFlake.
-     *
-     * @return SnowFlake
-     */
     @Bean
-    public SnowFlake getSnowFlake() {
-        return new SnowFlake(this.datacenterId, this.machineId);
+    public SnowFlake getSnowFlake(){
+        return new SnowFlake(datacenterId, machineId);
     }
 
     public static void main(String[] args) {

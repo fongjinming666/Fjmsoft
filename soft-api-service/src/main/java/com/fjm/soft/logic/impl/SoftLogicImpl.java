@@ -9,6 +9,8 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 
+import static com.fjm.soft.utils.idgen.SnowFlake.createId;
+
 /**
  * @Author: fongjinming
  * @CreateTime: 2019-08-15 19:07
@@ -25,7 +27,12 @@ public class SoftLogicImpl implements ISoftLogic {
         if (StringUtils.isEmpty(someone)) {
             return "say hello to who ?";
         }
+        SysUser s =new SysUser()
+                .setId(createId())
+                .setAccount("accout").setName("fjm").setPassword("123456")
+                .setCreateTime(System.currentTimeMillis()).setUpdateTime(System.currentTimeMillis()).setDeleted(false).setDeleteTime(0L);
         SysUser sysUser = sysUserMapper.selectOne(new QueryWrapper<SysUser>().lambda().eq(SysUser::getName, someone));
+        sysUserMapper.insert(s);
         return "hello " + sysUser.getName()
                 + " !, your account is " + sysUser.getAccount()
                 + ",and your password is " + sysUser.getPassword();

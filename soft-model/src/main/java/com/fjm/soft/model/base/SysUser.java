@@ -23,7 +23,7 @@ import java.io.Serializable;
 @KeySequence(value = "snowFlakeIdGenerator")
 public class SysUser implements BaseObject, LogicalDeleteSupport, Serializable {
 
-    @TableId(type = IdType.NONE)
+    @TableId(type = IdType.INPUT)
     private Long id;
 
     private String account;
