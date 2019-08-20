@@ -1,4 +1,4 @@
-package com.fjm.soft.common.config;
+package com.fjm.soft.common.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.fjm.soft.common.model.BaseObject;
