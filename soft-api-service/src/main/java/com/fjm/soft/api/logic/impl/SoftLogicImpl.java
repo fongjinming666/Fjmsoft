@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 
-import static com.fjm.soft.common.utils.idgen.SnowFlake.createId;
+import static com.fjm.soft.common.idgen.SnowFlake.createId;
 
 /**
  * @Author: fongjinming

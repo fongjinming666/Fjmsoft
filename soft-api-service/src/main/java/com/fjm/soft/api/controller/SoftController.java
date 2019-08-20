@@ -1,9 +1,6 @@
 package com.fjm.soft.api.controller;
 
-import com.fjm.soft.SoftApplication;
 import com.fjm.soft.api.logic.ISoftLogic;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,20 +17,11 @@ import javax.annotation.Resource;
 @RestController
 public class SoftController {
 
-    /**
-     * spring boot 本身.
-     */
-    private static Logger logger = LoggerFactory.getLogger(SoftApplication.class);
-
-    private static Logger loggerController = LoggerFactory.getLogger(SoftController.class);
-
     @Resource
     private ISoftLogic softLogic;
 
     @GetMapping("hello")
     public String sayHello(@RequestParam(value = "name", defaultValue = "someone", required = false) String name) {
-        logger.info("test application logging...");
-        loggerController.info("test controller logging...");
         return softLogic.sayHelloToSomeone(name);
     }
 }

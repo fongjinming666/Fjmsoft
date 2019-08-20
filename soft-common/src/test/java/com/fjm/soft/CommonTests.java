@@ -1,6 +1,6 @@
 package com.fjm.soft;
 
-import com.fjm.soft.common.utils.idgen.SnowFlake;
+import com.fjm.soft.common.idgen.SnowFlake;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;

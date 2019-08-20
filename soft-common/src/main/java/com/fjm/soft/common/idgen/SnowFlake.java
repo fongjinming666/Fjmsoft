@@ -1,4 +1,4 @@
-package com.fjm.soft.common.utils.idgen;
+package com.fjm.soft.common.idgen;
 
 /**
  * @Author: fongjinming
