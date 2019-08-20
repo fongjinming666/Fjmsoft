@@ -1,7 +1,7 @@
-package com.fjm.soft.controller;
+package com.fjm.soft.api.controller;
 
 import com.fjm.soft.SoftApplication;
-import com.fjm.soft.logic.ISoftLogic;
+import com.fjm.soft.api.logic.ISoftLogic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

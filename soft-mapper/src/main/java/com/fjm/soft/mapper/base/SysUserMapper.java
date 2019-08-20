@@ -1,7 +1,8 @@
 package com.fjm.soft.mapper.base;
 
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.fjm.soft.common.model.base.SysUser;
+import com.fjm.soft.model.base.SysUser;
 
 /**
  * @Author: fongjinming

@@ -1,4 +1,4 @@
-package com.fjm.soft.common.model.base;
+package com.fjm.soft.model.base;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.fjm.soft.common.model.BaseObject;

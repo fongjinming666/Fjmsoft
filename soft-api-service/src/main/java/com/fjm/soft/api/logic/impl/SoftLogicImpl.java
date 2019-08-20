@@ -1,8 +1,8 @@
-package com.fjm.soft.logic.impl;
+package com.fjm.soft.api.logic.impl;
 
-import com.fjm.soft.logic.ISoftLogic;
+import com.fjm.soft.api.logic.ISoftLogic;
 import com.fjm.soft.mapper.base.SysUserMapper;
-import com.fjm.soft.common.model.base.SysUser;
+import com.fjm.soft.model.base.SysUser;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

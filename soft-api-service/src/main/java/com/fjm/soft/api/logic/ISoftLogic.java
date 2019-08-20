@@ -1,4 +1,4 @@
-package com.fjm.soft.logic;
+package com.fjm.soft.api.logic;
 
 /**
  * @Author: fongjinming
