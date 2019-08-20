@@ -1,4 +1,4 @@
-package com.fjm.soft.config;
+package com.fjm.soft.common.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;

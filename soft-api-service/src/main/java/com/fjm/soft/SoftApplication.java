@@ -1,6 +1,6 @@
 package com.fjm.soft;
 
-import com.fjm.soft.utils.idgen.SnowFlake;
+import com.fjm.soft.common.utils.idgen.SnowFlake;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,10 +1,4 @@
-/*
- * Project:    全课通平台 - 通用工具模块
- *
- * FileName:   BaseObject.java
- * CreateTime: 2018-06-27 15:49:51
- */
-package com.fjm.soft.model;
+package com.fjm.soft.common.model;
 
 /**
  * 封装一般实体类基础属性

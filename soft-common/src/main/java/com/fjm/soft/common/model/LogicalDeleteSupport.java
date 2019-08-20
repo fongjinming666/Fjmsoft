@@ -1,10 +1,4 @@
-/*
- * Project:    全课通平台 - 通用工具模块
- *
- * FileName:   LogicalDeleteSupport.java
- * CreateTime: 2018-06-27 15:16:35
- */
-package com.fjm.soft.model;
+package com.fjm.soft.common.model;
 
 /**
  * 让实体类支持逻辑删除的接口

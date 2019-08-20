@@ -1,10 +1,4 @@
-/*
- * Project:    全课通平台 - 通用工具模块
- *
- * FileName:   NumberUtils.java
- * CreateTime: 2018-08-01 10:17:48
- */
-package com.fjm.soft.utils;
+package com.fjm.soft.common.utils;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

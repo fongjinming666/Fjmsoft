@@ -1,10 +1,4 @@
-/**
- * Project:    全课通平台 - 通用工具模块.
- * <p>
- * FileName:   StringUtil.java
- * CreateTime: 2018-07-12 11:50:16
- */
-package com.fjm.soft.utils;
+package com.fjm.soft.common.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

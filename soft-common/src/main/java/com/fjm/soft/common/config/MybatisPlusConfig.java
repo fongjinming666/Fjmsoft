@@ -1,4 +1,4 @@
-package com.fjm.soft.config;
+package com.fjm.soft.common.config;
 
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
@@ -28,7 +28,6 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement
 @MapperScan("com.fjm.soft.mapper")
-
 public class MybatisPlusConfig {
 
     @Autowired

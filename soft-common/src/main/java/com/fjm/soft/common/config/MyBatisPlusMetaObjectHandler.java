@@ -1,11 +1,11 @@
-package com.fjm.soft.config;
+package com.fjm.soft.common.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.fjm.soft.model.BaseObject;
-import com.fjm.soft.model.LogicalDeleteSupport;
+import com.fjm.soft.common.model.BaseObject;
+import com.fjm.soft.common.model.LogicalDeleteSupport;
 import org.apache.ibatis.reflection.MetaObject;
 
-import static com.fjm.soft.utils.DateUtils.getTransactionDate;
+import static com.fjm.soft.common.utils.DateUtils.getTransactionDate;
 
 /**
  * @Author: fongjinming

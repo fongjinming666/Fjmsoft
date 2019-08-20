@@ -1,8 +1,8 @@
-package com.fjm.soft.model.base;
+package com.fjm.soft.common.model.base;
 
 import com.baomidou.mybatisplus.annotation.*;
-import com.fjm.soft.model.BaseObject;
-import com.fjm.soft.model.LogicalDeleteSupport;
+import com.fjm.soft.common.model.BaseObject;
+import com.fjm.soft.common.model.LogicalDeleteSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,6 @@ import java.io.Serializable;
  * @CreateTime: 2019-08-16 17:17
  * @Description:
  */
-
 @Data
 @Accessors(chain = true)
 @TableName(value = "sys_user")
@@ -23,8 +22,11 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class SysUser implements BaseObject, LogicalDeleteSupport, Serializable {
 
+
     @TableId(type = IdType.INPUT)
     private Long id;
+
+    private Long deptId;
 
     private String account;
 
@@ -32,14 +34,22 @@ public class SysUser implements BaseObject, LogicalDeleteSupport, Serializable {
 
     private String password;
 
+    private String email;
+
+    private String mobile;
+
+    private Integer sex;
+
+    private Integer status;
+
+    private Long creatorId;
+
     @TableField(fill = FieldFill.INSERT)
     private Long createTime;
 
     private Long updateTime;
 
-   // @TableField(fill = FieldFill.INSERT)
-    private boolean deleted;
-
-    @TableField(fill = FieldFill.INSERT)
     private Long deleteTime;
+
+    private boolean deleted;
 }

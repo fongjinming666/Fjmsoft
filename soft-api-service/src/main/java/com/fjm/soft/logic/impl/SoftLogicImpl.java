@@ -1,14 +1,14 @@
 package com.fjm.soft.logic.impl;
 
 import com.fjm.soft.logic.ISoftLogic;
-import com.fjm.soft.mapper.SysUserMapper;
-import com.fjm.soft.model.base.SysUser;
+import com.fjm.soft.mapper.base.SysUserMapper;
+import com.fjm.soft.common.model.base.SysUser;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 
-import static com.fjm.soft.utils.idgen.SnowFlake.createId;
+import static com.fjm.soft.common.utils.idgen.SnowFlake.createId;
 
 /**
  * @Author: fongjinming

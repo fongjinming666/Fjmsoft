@@ -1,10 +1,4 @@
-/*
- * Project:    全课通平台 - 通用工具模块
- *
- * FileName:   DateUtils.java
- * CreateTime: 2018-06-09 21:51:00
- */
-package com.fjm.soft.utils;
+package com.fjm.soft.common.utils;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -15,7 +9,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.fjm.soft.utils.NumberUtils.toInt;
+import static com.fjm.soft.common.utils.NumberUtils.toInt;
 import static java.lang.System.currentTimeMillis;
 import static java.util.Calendar.*;
 import static java.util.regex.Pattern.compile;

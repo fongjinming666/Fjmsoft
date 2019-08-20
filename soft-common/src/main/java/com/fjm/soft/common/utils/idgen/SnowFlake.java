@@ -1,4 +1,4 @@
-package com.fjm.soft.utils.idgen;
+package com.fjm.soft.common.utils.idgen;
 
 import static java.lang.System.currentTimeMillis;
 

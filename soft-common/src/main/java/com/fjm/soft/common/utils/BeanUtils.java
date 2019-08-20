@@ -1,4 +1,4 @@
-package com.fjm.soft.utils;
+package com.fjm.soft.common.utils;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
