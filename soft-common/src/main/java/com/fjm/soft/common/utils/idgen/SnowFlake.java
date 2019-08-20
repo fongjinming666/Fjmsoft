@@ -1,7 +1,5 @@
 package com.fjm.soft.common.utils.idgen;
 
-import static java.lang.System.currentTimeMillis;
-
 /**
  * @Author: fongjinming
  * @CreateTime: 2019-08-14 14:44
@@ -12,7 +10,7 @@ public class SnowFlake {
     /**
      * 起始的时间戳
      */
-    private final static long START_STMP = 1480166465631L;
+    private final static long START_STMP = 1566280450583L;
 
     /**
      * 每一部分占用的位数
@@ -107,7 +105,7 @@ public class SnowFlake {
      * @return
      */
     public synchronized long nextId() {
-        long currStmp = timestampOffsetGen();
+        long currStmp = getNewstmp();
         if (currStmp < lastStmp) {
             throw new RuntimeException("Clock moved backwards.  Refusing to generate id");
         }
@@ -117,7 +115,7 @@ public class SnowFlake {
             sequence = (sequence + 1) & MAX_SEQUENCE;
             //同一毫秒的序列数已经达到最大
             if (sequence == 0L) {
-                currStmp = tilNextTimestamp(lastStmp);
+                currStmp = getNextMill();
             }
         } else {
             //不同毫秒内，序列号置为0
@@ -132,29 +130,15 @@ public class SnowFlake {
                 | sequence;                             //序列号部分
     }
 
-    /**
-     * 获取下一个时间戳（sequence溢出的情况下需要处理）.
-     *
-     * @param lastTimestamp 上一个时间戳
-     * @return 下一个时间戳
-     */
-    private long tilNextTimestamp(final long lastTimestamp) {
-        long timestamp = timestampOffsetGen();
-
-        while (timestamp <= lastTimestamp) {
-            timestamp = timestampOffsetGen();
+    private long getNextMill() {
+        long mill = getNewstmp();
+        while (mill <= lastStmp) {
+            mill = getNewstmp();
         }
-
-        return timestamp;
+        return mill;
     }
 
-    /**
-     * 获取当前时间戳（直接减掉基准时间戳）.
-     *
-     * @return 时间戳
-     */
-    private long timestampOffsetGen() {
-        return currentTimeMillis() - START_STMP;
+    private long getNewstmp() {
+        return System.currentTimeMillis();
     }
-
 }
